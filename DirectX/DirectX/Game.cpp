@@ -69,6 +69,10 @@ void Game::Initialize()
 	viewport.Height = Window->Bounds.Height;
 
 	devcon->RSSetViewports(1, &viewport);
+
+	// initialize graphics and the pipeline
+	InitGraphics();
+	InitPipeline();
 }
 
 // this function performs updates to the state of the game
@@ -86,6 +90,17 @@ void Game::Render()
 	float color[4] = { 0.0f, 0.6f, 0.4f, 1.0f };
 	devcon->ClearRenderTargetView(rendertarget.Get(), color);
 
+	// set the vertex buffer
+	UINT stride = sizeof(VERTEX);
+	UINT offset = 0;
+	devcon->IASetVertexBuffers(0, 1, vertexbuffer.GetAddressOf(), &stride, &offset);
+	
+	// set the primitive topology
+	devcon->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	
+	// draw 3 vertices, starting from vertex 0
+	devcon->Draw(3, 0);
+
 	// switch the back buffer and the front buffer
 	swapchain->Present(1, 0);
 }
@@ -94,7 +109,8 @@ void Game::InitGraphics()
 {
 	VERTEX OurVertices[] =
 	{
-		{ 0.0f, 0.5f, 0.0f },
+		{ -0.45f, 0.5f, 0.0f },
+		{ 0.45f, 0.5f, 0.0f },
 		{ 0.45f, -0.5f, 0.0f },
 		{ -0.45f, -0.5f, 0.0f },
 	};
