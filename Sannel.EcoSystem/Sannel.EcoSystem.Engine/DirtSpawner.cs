@@ -9,10 +9,6 @@ namespace Sannel.EcoSystem.Engine
 {
 	public class DirtSpawner : ITerrainSpawner
 	{
-		public byte GeneratePrecentage
-		{
-			get { return byte.MaxValue; }
-		}
 
 		public Uri ImageFile
 		{
@@ -30,6 +26,23 @@ namespace Sannel.EcoSystem.Engine
 
 		public void Dispose()
 		{
+		}
+
+
+		public GenerationShape Shape
+		{
+			get { return GenerationShape.OneTile; }
+		}
+
+		public float GenerationPrecentage
+		{
+			get { return 0.9f; }
+		}
+
+
+		public byte ShapeSize
+		{
+			get { return 1; }
 		}
 	}
 }

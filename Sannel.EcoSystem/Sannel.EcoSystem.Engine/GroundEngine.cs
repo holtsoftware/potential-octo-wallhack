@@ -25,7 +25,7 @@ namespace Sannel.EcoSystem.Engine
 
 		public void AddLifeSpawner(ILifeSpawner spawner)
 		{
-			if(spawner == null)
+			if (spawner == null)
 			{
 				throw new ArgumentNullException("spawner");
 			}
@@ -35,7 +35,7 @@ namespace Sannel.EcoSystem.Engine
 
 		public void AddTerrainSpawner(ITerrainSpawner spawner)
 		{
-			if(terrain == null)
+			if (terrain == null)
 			{
 				throw new ArgumentNullException("spawner");
 			}
@@ -43,38 +43,70 @@ namespace Sannel.EcoSystem.Engine
 			tspawners.Add(spawner);
 		}
 
-		public void GenerateMap()
+		private void square(int row, int col, byte size, ITerrainSpawner spawner)
 		{
-			List<Presentage> pres = new List<Presentage>();
-			int top = 0;
-			foreach(var spawner in tspawners)
+			for (int r = row - size; r < row + size; r++)
 			{
-				Presentage p = new Presentage();
-				p.Min = top;
-				p.Max = top + (int)spawner.GeneratePrecentage;
-				top = p.Max + 1;
-				p.Spawner = spawner;
-				pres.Add(p);
-			}
-
-			top--;
-
-			Random rand = new Random();
-
-			for(int c=0; c < terrain.Columns;c++)
-			{
-				for(int r=0;r<terrain.Rows;r++)
+				for (int c = col - size; c < col + size; c++)
 				{
-					var val = rand.Next(0, top);
-
-					foreach(var p in pres)
+					if (c >= 0 && c < terrain.Columns)
 					{
-						if(val >= p.Min && val <= p.Max)
+						if (r >= 0 && r < terrain.Rows)
 						{
-							terrain[r, c] = p.Spawner.Create();
-							break;
+							if (terrain[r, c] != null)
+							{
+								terrain[r, c].Dispose();
+							}
+
+							terrain[r, c] = spawner.Create();
 						}
 					}
+				}
+			}
+		}
+
+		public void GenerateMap()
+		{
+			Random rand = new Random();
+
+			for (int c = 0; c < terrain.Columns; c++)
+			{
+				for (int r = 0; r < terrain.Rows; r++)
+				{
+					if (terrain[r, c] == null)
+					{
+						bool found = false;
+						while (!found)
+						{
+							float val = (float)rand.NextDouble();
+							var index = rand.Next(0, tspawners.Count);
+							var spawner = tspawners[index];
+							if (spawner.GenerationPrecentage > val)
+							{
+								found = true;
+								switch (spawner.Shape)
+								{
+									case GenerationShape.OneTile:
+										terrain[r, c] = spawner.Create();
+										break;
+
+									case GenerationShape.Square:
+										square(r, c, spawner.ShapeSize, spawner);
+										break;
+								}
+							}
+						}
+					}
+					//var val = rand.Next(0, top);
+
+					//foreach(var p in pres)
+					//{
+					//	if(val >= p.Min && val <= p.Max)
+					//	{
+					//		terrain[r, c] = p.Spawner.Create();
+					//		break;
+					//	}
+					//}
 				}
 			}
 		}
@@ -85,7 +117,7 @@ namespace Sannel.EcoSystem.Engine
 
 		public void Dispose()
 		{
-			foreach(var s in spawners)
+			foreach (var s in spawners)
 			{
 				s.Dispose();
 			}

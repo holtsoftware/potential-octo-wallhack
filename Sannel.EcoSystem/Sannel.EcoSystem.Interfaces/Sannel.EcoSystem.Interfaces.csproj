@@ -104,9 +104,11 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenerationShape.cs" />
     <Compile Include="IEcoEngine.cs" />
     <Compile Include="ILife.cs" />
     <Compile Include="ILifeSpawner.cs" />
+    <Compile Include="ISpawner.cs" />
     <Compile Include="ITerrain.cs" />
     <Compile Include="ITerrainSpawner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,24 +6,11 @@ using System.Threading.Tasks;
 
 namespace Sannel.EcoSystem.Interfaces
 {
-	public interface ITerrainSpawner : ISpawner
+	public interface ISpawner : IDisposable
 	{
-		Uri ImageFile
-		{
-			get;
-			set;
-		}
-
-		GenerationShape Shape
+		float GenerationPrecentage
 		{
 			get;
 		}
-
-		byte ShapeSize
-		{
-			get;
-		}
-
-		ITerrain Create();
 	}
 }

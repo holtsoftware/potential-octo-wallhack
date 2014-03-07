@@ -9,11 +9,6 @@ namespace Sannel.EcoSystem.Engine
 {
 	public class WaterSpawner : ITerrainSpawner
 	{
-		public byte GeneratePrecentage
-		{
-			get { return 64; }
-		}
-
 		public Uri ImageFile
 		{
 			get;
@@ -28,9 +23,25 @@ namespace Sannel.EcoSystem.Engine
 			};
 		}
 
+
+		public GenerationShape Shape
+		{
+			get { return GenerationShape.Square; }
+		}
+
+		public float GenerationPrecentage
+		{
+			get { return 0.05f; }
+		}
+
 		public void Dispose()
 		{
-			
+		}
+
+
+		public byte ShapeSize
+		{
+			get { return 2; }
 		}
 	}
 }

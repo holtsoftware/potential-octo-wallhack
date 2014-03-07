@@ -134,6 +134,7 @@
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\Tiles\Dirt.png" />
+    <Content Include="Assets\Tiles\Grass.png" />
     <Content Include="Assets\Tiles\Water.png" />
   </ItemGroup>
   <ItemGroup>
