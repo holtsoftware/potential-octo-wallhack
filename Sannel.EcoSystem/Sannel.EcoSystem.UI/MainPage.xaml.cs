@@ -1,5 +1,6 @@
 ﻿using Sannel.EcoSystem.Engine;
 using Sannel.EcoSystem.Interfaces;
+using Sannel.EcoSystem.Parts;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -43,6 +44,9 @@ namespace Sannel.EcoSystem.UI
 				WaterSpawner w = new WaterSpawner();
 				w.ImageFile = new Uri("ms-appx:///Assets/Tiles/Water.png");
 				engine.AddTerrainSpawner(w);
+				var g = new GrassSpawner();
+				g.ImageFile = new Uri("ms-appx:///Assets/Tiles/Grass.png");
+				engine.AddTerrainSpawner(g);
 				engine.GenerateMap();
 				var gridSize = new GridLength(150);
 				for(int r=0;r<engine.Rows;r++)

@@ -34,5 +34,11 @@ namespace Sannel.EcoSystem.Engine
 		public void Dispose()
 		{
 		}
+
+		public ITerrainSpawner Spawner
+		{
+			get;
+			set;
+		}
 	}
 }

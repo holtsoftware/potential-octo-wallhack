@@ -68,6 +68,24 @@ namespace Sannel.EcoSystem.Engine
 		public void GenerateMap()
 		{
 			Random rand = new Random();
+			List<Presentage> p = new List<Presentage>();
+			uint genStart = 1000 * (uint)tspawners.Count;
+			uint top = 0;
+			uint randSize = 0;
+
+			foreach(var spawner in tspawners)
+			{
+				Presentage pre = new Presentage();
+				pre.Min = top;
+				uint u = (uint)Math.Truncate(genStart * spawner.GenerationPrecentage);
+				randSize += u;
+				top += u;
+				pre.Max = top;
+				pre.Spawner = spawner;
+				p.Add(pre);
+			}
+
+			
 
 			for (int c = 0; c < terrain.Columns; c++)
 			{
@@ -75,23 +93,20 @@ namespace Sannel.EcoSystem.Engine
 				{
 					if (terrain[r, c] == null)
 					{
-						bool found = false;
-						while (!found)
+						uint value = (uint)Math.Truncate((randSize * rand.NextDouble()) % randSize);
+
+						foreach (var pres in p)
 						{
-							float val = (float)rand.NextDouble();
-							var index = rand.Next(0, tspawners.Count);
-							var spawner = tspawners[index];
-							if (spawner.GenerationPrecentage > val)
+							if(value >= pres.Min && value < pres.Max)
 							{
-								found = true;
-								switch (spawner.Shape)
+								switch(pres.Spawner.Shape)
 								{
 									case GenerationShape.OneTile:
-										terrain[r, c] = spawner.Create();
+										terrain[r, c] = pres.Spawner.Create();
 										break;
 
 									case GenerationShape.Square:
-										square(r, c, spawner.ShapeSize, spawner);
+										square(r, c, pres.Spawner.ShapeSize, pres.Spawner);
 										break;
 								}
 							}

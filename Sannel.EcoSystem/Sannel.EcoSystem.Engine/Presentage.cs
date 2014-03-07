@@ -9,9 +9,9 @@ namespace Sannel.EcoSystem.Engine
 {
 	public class Presentage
 	{
-		public int Min { get; set; }
+		public uint Min { get; set; }
 
-		public int Max { get; set; }
+		public uint Max { get; set; }
 
 		public ITerrainSpawner Spawner { get; set; }
 	}

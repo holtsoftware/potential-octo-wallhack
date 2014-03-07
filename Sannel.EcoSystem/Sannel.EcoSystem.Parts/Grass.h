@@ -1,4 +1,8 @@
 #pragma once
+
+using namespace Sannel::EcoSystem::Interfaces;
+using namespace Windows::Foundation;
+
 namespace Sannel
 {
 	namespace EcoSystem
@@ -8,8 +12,10 @@ namespace Sannel
 			ref class Grass sealed : 
 			public Sannel::EcoSystem::Interfaces::ITerrain
 			{
+			internal:
+				Grass(Uri^ image, ITerrainSpawner^ tSpawner);
+
 			public:
-				Grass();
 				virtual ~Grass();
 
 				virtual property byte Water{
@@ -45,9 +51,18 @@ namespace Sannel
 					}
 				}
 
+				virtual property ITerrainSpawner^ Spawner
+				{
+					ITerrainSpawner^ get()
+					{
+						return spawner;
+					}
+				}
+
 			private:
 				byte sun;
 				Windows::Foundation::Uri^ imageFile;
+				ITerrainSpawner^ spawner;
 			};
 		}
 	}

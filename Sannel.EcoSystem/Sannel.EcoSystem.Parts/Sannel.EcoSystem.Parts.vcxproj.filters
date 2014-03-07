@@ -8,10 +8,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="GrassSpawner.cpp" />
     <ClCompile Include="Grass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="GrassSpawner.h" />
     <ClInclude Include="Grass.h" />
   </ItemGroup>
 </Project>

@@ -111,6 +111,10 @@
       <Project>{f0550d90-cd79-48d7-a6ad-8a8a1aaf0b22}</Project>
       <Name>Sannel.EcoSystem.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Sannel.EcoSystem.Parts\Sannel.EcoSystem.Parts.vcxproj">
+      <Project>{113fa5ac-af7f-45eb-8e89-35c2933f745b}</Project>
+      <Name>Sannel.EcoSystem.Parts</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">

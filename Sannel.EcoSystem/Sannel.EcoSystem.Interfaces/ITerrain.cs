@@ -28,5 +28,10 @@ namespace Sannel.EcoSystem.Interfaces
 		{
 			get;
 		}
+
+		ITerrainSpawner Spawner
+		{
+			get;
+		}
 	}
 }

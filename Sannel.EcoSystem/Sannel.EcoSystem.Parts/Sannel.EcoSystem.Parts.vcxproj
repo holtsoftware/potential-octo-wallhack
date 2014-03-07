@@ -30,7 +30,7 @@
     <ProjectGuid>{113fa5ac-af7f-45eb-8e89-35c2933f745b}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <ProjectName>Sannel.EcoSystem.Parts</ProjectName>
-    <RootNamespace>Sannel_EcoSystem_Parts</RootNamespace>
+    <RootNamespace>Sannel.EcoSystem.Parts</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
     <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
     <AppContainerApplication>true</AppContainerApplication>
@@ -106,6 +106,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <GenerateManifest>false</GenerateManifest>
+    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <GenerateManifest>false</GenerateManifest>
@@ -208,10 +209,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Grass.h" />
+    <ClInclude Include="GrassSpawner.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Grass.cpp" />
+    <ClCompile Include="GrassSpawner.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

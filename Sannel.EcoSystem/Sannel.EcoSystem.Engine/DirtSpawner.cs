@@ -36,7 +36,7 @@ namespace Sannel.EcoSystem.Engine
 
 		public float GenerationPrecentage
 		{
-			get { return 0.9f; }
+			get { return 1f; }
 		}
 
 
