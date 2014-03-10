@@ -1,4 +1,4 @@
-﻿using Sannel.EcoSystem.Interfaces;
+﻿//using Sannel.EcoSystem.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +13,6 @@ namespace Sannel.EcoSystem.Engine
 
 		public uint Max { get; set; }
 
-		public ITerrainSpawner Spawner { get; set; }
+		//public ITerrainSpawner Spawner { get; set; }
 	}
 }

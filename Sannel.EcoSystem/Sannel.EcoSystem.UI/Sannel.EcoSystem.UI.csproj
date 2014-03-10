@@ -107,10 +107,6 @@
       <Project>{491b13c4-f9e2-4ee9-a13d-2f8c79a04009}</Project>
       <Name>Sannel.EcoSystem.Engine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Sannel.EcoSystem.Interfaces\Sannel.EcoSystem.Interfaces.csproj">
-      <Project>{f0550d90-cd79-48d7-a6ad-8a8a1aaf0b22}</Project>
-      <Name>Sannel.EcoSystem.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Sannel.EcoSystem.Parts\Sannel.EcoSystem.Parts.vcxproj">
       <Project>{113fa5ac-af7f-45eb-8e89-35c2933f745b}</Project>
       <Name>Sannel.EcoSystem.Parts</Name>
