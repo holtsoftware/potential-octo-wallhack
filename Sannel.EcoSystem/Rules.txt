@@ -1,12 +1,12 @@
 For Terrain:
-Water level can be between 0 and 256
+Water level can be between 0 and 255
 * 0 being desert
-* 256 being like a lake/sea
+* 255 being like a lake/sea
 * 64 being dirt
 * 192 being swampy
 
-Water quality can be between 0 and 256
-* 256 being fresh water
+Water quality can be between 0 and 255
+* 255 being fresh water
 * 0 being salt water
 * 129 being paluted fresh water
 * 128 being paluted salt water
