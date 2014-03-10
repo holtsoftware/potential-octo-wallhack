@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{491B13C4-F9E2-4EE9-A13D-2F8C79A04009}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{1421DCD9-F75C-4781-9A26-9D3708029F74}</ProjectGuid>
+    <OutputType>winmdobj</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sannel.EcoSystem.Engine</RootNamespace>
-    <AssemblyName>Sannel.EcoSystem.Engine</AssemblyName>
+    <RootNamespace>Sannel.EcoSystem.Base</RootNamespace>
+    <AssemblyName>Sannel.EcoSystem.Base</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
@@ -101,16 +101,10 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Presentage.cs" />
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Sannel.Helpers.WinRT">
-      <HintPath>..\packages\Sannel.Helpers.1.4.0\lib\netcore45\Sannel.Helpers.WinRT.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

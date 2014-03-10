@@ -1,5 +1,4 @@
-﻿using Sannel.EcoSystem.Engine;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -34,7 +33,7 @@ namespace Sannel.EcoSystem.UI
 			base.OnNavigatedTo(e);
 			//if(engine == null)
 			//{
-				
+
 			//	var gridSize = new GridLength(150);
 			//	for(int r=0;r<engine.Rows;r++)
 			//	{
