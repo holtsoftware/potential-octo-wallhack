@@ -19,7 +19,8 @@ namespace Sannel.EcoSystem.Engine
 		{
 			return new Water()
 			{
-				ImageFile = ImageFile
+				ImageFile = ImageFile,
+				Spawner = this
 			};
 		}
 

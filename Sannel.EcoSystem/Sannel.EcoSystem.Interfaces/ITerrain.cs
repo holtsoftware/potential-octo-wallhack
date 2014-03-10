@@ -33,5 +33,10 @@ namespace Sannel.EcoSystem.Interfaces
 		{
 			get;
 		}
+
+		/// <summary>
+		/// A tick coming from the engine not much for terrain to do here.
+		/// </summary>
+		void Tick();
 	}
 }

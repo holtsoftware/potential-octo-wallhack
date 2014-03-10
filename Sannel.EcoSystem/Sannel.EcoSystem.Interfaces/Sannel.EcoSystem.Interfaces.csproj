@@ -108,6 +108,7 @@
     <Compile Include="IEcoEngine.cs" />
     <Compile Include="ILife.cs" />
     <Compile Include="ILifeSpawner.cs" />
+    <Compile Include="IPlant.cs" />
     <Compile Include="ISpawner.cs" />
     <Compile Include="ITerrain.cs" />
     <Compile Include="ITerrainSpawner.cs" />

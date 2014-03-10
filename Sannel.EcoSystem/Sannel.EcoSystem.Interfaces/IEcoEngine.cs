@@ -8,13 +8,17 @@ namespace Sannel.EcoSystem.Interfaces
 {
 	public interface IEcoEngine : IDisposable
 	{
-		void AddLifeSpawner(ILifeSpawner spawner);
-
 		void AddTerrainSpawner(ITerrainSpawner spawner);
 
+		/// <summary>
+		/// Generates the maps given the provided TerrainSpawners
+		/// </summary>
 		void GenerateMap();
 
-		void GenerateLife();
+		/// <summary>
+		/// Called to indicate an engin tick thats sent to all terrain and life.
+		/// </summary>
+		void Tick();
 
 		ITerrain GetTerrainAt(int row, int column);
 

@@ -159,5 +159,13 @@ namespace Sannel.EcoSystem.Engine
 		{
 			throw new NotImplementedException();
 		}
+
+
+		public void Tick()
+		{
+			// Calculate weather
+			// loop through terrain look at life and update water levels.
+			// loop through life and call tick on it.
+		}
 	}
 }

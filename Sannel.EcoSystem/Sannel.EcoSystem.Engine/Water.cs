@@ -41,5 +41,10 @@ namespace Sannel.EcoSystem.Engine
 			get;
 			set;
 		}
+
+
+		public void Tick()
+		{
+		}
 	}
 }
