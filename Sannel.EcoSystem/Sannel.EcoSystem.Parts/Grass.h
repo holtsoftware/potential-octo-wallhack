@@ -18,6 +18,8 @@ namespace Sannel
 			public:
 				virtual ~Grass();
 
+				virtual void Tick(void);
+
 				virtual property byte Water{
 					byte get(){
 						return 40;

@@ -19,6 +19,11 @@ namespace Sannel
 			{
 
 			}
+
+			void Grass::Tick()
+			{
+
+			}
 		}
 	}
 }
