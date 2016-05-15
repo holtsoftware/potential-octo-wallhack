@@ -1,0 +1,67 @@
+// Adam Holt
+// week12
+// problem 2 
+// test lab part
+
+/* output
+ * G:\test> java testP2 www.itt-tech.edu
+ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefg
+
+ G:\test> java testP2 linux.holt-software.com
+ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefgh
+ */
+
+import java.net.*;
+import java.io.*;
+
+public class testP2 {
+    public static void main(String[] args){
+        if(args.length ==1)
+	{
+	    try{
+	        chargenClient client = new chargenClient(args[0]);
+		client.connect();
+	    }
+	    catch(Exception e){
+	        System.err.println("Exception: " + e.getMessage());
+	    }
+	}
+	else
+        {
+            System.err.println("You must supply the name of the host to contact.");
+        }
+    }
+}
+
+class chargenClient{
+    public chargenClient(String hostname) throws Exception{
+	final int CHARGEN_PORT = 19;
+        try{
+	    socket = new Socket(hostname,CHARGEN_PORT);
+	}
+	catch(UnknownHostException e){
+	    throw new Exception("Unknown host: " + e.getMessage());
+	}
+	catch(IOException e){
+            throw new Exception("IOException on socket creation: " + e.getMessage());
+	}
+    }
+
+    public void connect()
+    {
+        try{
+	    InputStream inStream = socket.getInputStream();
+	    BufferedReader reader = new BufferedReader(
+		    new InputStreamReader(inStream));
+
+	    String response = reader.readLine();
+	    System.out.println(response);
+	    socket.close();
+	}
+	catch(IOException e){
+	    System.err.println(e.getMessage());
+	}
+    }
+
+    private final Socket socket;
+}

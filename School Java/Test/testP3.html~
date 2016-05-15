@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>
+3 Image viewer
+</title>
+</head>
+<body bgcolor="blue">
+    <applet code="testP3.class" width=250 height=350>
+    Your browser dont support applets sarry.
+    <param name="image1" value="images/train1.jpg">
+    <param name="image2" value="images/train4.jpg">
+    <param name="image3" value="images/train5.jpg">
+    </applet>
+</body>
+</html>

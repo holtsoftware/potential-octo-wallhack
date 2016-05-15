@@ -1,0 +1,16 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/darren@hiebert.com/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.0.1	//
+client	exer19_10.java	/^    public client(String hostname,int serverport) throws Exception {$/;"	m	class:client
+client	exer19_10.java	/^class client {$/;"	c
+execute	exer19_10.java	/^    public void execute(){$/;"	m	class:client
+exer19_10	exer19_10.java	/^public class exer19_10 {$/;"	c
+main	exer19_10.java	/^    public static void main(String[] args){$/;"	m	class:exer19_10
+run	exer19_10.java	/^    public void run() {$/;"	m	class:server
+server	exer19_10.java	/^    public server(int port) throws Exception {$/;"	m	class:server
+server	exer19_10.java	/^class server implements Runnable{$/;"	c
+serverSocket	exer19_10.java	/^    private final ServerSocket serverSocket;$/;"	f	class:server	file:
+socket	exer19_10.java	/^    private final Socket socket;$/;"	f	class:client	file:

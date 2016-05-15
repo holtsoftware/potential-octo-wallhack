@@ -1,0 +1,8 @@
+100,1
+1,4,"","Armor",0,0,""
+5,9,"[file]","Minor\WTD.dmg",1,1,"Weapon("
+10,44,"[file]","Minor\potions.dmg",1,1,"Potion("
+45,46,"[file]","Minor\rings.dmg",1,1,"Ring("
+47,81,"[file]","Minor\scrolls.dmg",1,1,"Scroll("
+82,91,"[file]","Minor\Wands.dmg",1,1,"Wands("
+92,100,"[file]","Minor\WondItems.dmg",1,1,"Wondrous("

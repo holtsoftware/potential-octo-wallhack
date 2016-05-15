@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<attributes version="1.0">
+   <fileobject name="A.dict">
+      <attr name="org.netbeans.modules.text.IsTextFile" boolvalue="true"/>
+   </fileobject>
+   <fileobject name="C.dict">
+      <attr name="org.netbeans.modules.text.IsTextFile" boolvalue="true"/>
+   </fileobject>
+</attributes>
