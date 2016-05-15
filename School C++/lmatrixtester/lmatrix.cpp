@@ -1,0 +1,126 @@
+#include "lmatrix.h"
+#include <stdlib.h>
+#include <iostream.h>
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+//Constructors/Destructor
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+lmatrix<T>::lmatrix()
+: mycols=0,myrows=0
+{
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+lmatrix<T>::lmatrix(int rows,int cols)
+: myrows(rows),mycols(cols),mymatrix(rows)
+{
+	for(int i;i<rows;k++)
+	{
+		mymatrix[i].resize(cols);
+	}
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+lmatrix<T>::lmatrix(int rows,int cols,const T & fillvalue)
+: myrows(rows),mycols(cols),mymatrix(rows)
+{
+	for(int i;i<rows;k++)
+	{
+		mymatrix[i].resize(cols);
+		for(int j;j<cols;j++)
+		{
+			mymatrix[i][k]=fillvalue;
+		}
+	}
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+lmatrix<T>::lmatrix(const lmatrix & tcopy)
+{
+	myrows=tcopy.rows();
+	mycols=tcopy.cols();
+	for(int i;i<tcopy.rows();k++)
+	{
+		mymatrix[i].resize(tcopy.cols());
+		for(int j;j<tcopy.cols();j++)
+		{
+			mymatrix[i][k]=tcopy[i][k];
+		}
+	}
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+lmatrix<T>::~lmatrix()
+{
+
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// member functions
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+const lmatrix<T> & lmatrix<T>::operator = (const lmatrix & tcopy)
+{
+	myrows=tcopy.rows();
+	mycols=tcopy.cols();
+	for(int i;i<tcopy.rows();k++)
+	{
+		mymatrix[i].resize(tcopy.cols());
+		for(int j;j<tcopy.cols();j++)
+		{
+			mymatrix[i][k]=tcopy[i][k];
+		}
+	}
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+int lmatrix<T>::numrows() const
+{
+	return myrows;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+int lmatrix<T>::numcols() const
+{
+	return mycols;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+lvector<T> & lmatrix<T>::operator [](int index)
+{
+	if(index < 0 || index >= myrows)
+	{
+		cerr<<"Index out of range!";
+		exit(1);
+	}
+	return mymatrix[index];
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+void lmatrix<T>::resize(int rows,int cols)
+{
+	mymatrix.resize(rows);
+	for(int i;i<rows;k++)
+	{
+		mymatrix[i].resize(cols);
+	}
+}

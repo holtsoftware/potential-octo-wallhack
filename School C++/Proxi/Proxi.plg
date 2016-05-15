@@ -1,0 +1,33 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Proxi - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "E:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP157.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Proxi.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"E:\Documents and Settings\Administrator\Desktop\cpp\cpp\Proxi\Proxi.cpp"
+"E:\Documents and Settings\Administrator\Desktop\cpp\cpp\Proxi\ProxiDlg.cpp"
+"E:\Documents and Settings\Administrator\Desktop\cpp\cpp\Proxi\DlgProxy.cpp"
+]
+Creating command line "cl.exe @E:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP157.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/Proxi.pdb" /debug /machine:I386 /out:"Debug/Proxi.exe" /pdbtype:sept  ".\Debug\Proxi.obj" ".\Debug\ProxiDlg.obj" ".\Debug\DlgProxy.obj" ".\Debug\StdAfx.obj" ".\Debug\Proxi.res" "
+<h3>Output Window</h3>
+Compiling...
+Proxi.cpp
+Generating Code...
+Skipping... (no relevant changes detected)
+ProxiDlg.cpp
+DlgProxy.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+Proxi.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,42 @@
+// Proxi.odl : type library source for Proxi.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (Proxi.tlb).
+
+[ uuid(A44A6EBB-C42B-4BD4-B542-2A97EA6382F1), version(1.0) ]
+library Proxi
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+
+	//  Primary dispatch interface for CProxiDoc
+	
+	[ uuid(4603921A-A400-4EC4-9EA7-ACDEFF4EF394) ]
+	dispinterface IProxi
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CProxiDlgAutoProxy)
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CProxiDlgAutoProxy)
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CProxiDoc
+	
+	[ uuid(1AAF21D1-D390-485D-8FD2-D39D083D052D) ]
+	coclass Proxi
+	{
+		[default] dispinterface IProxi;
+	};
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};
