@@ -1,0 +1,24 @@
+/*chap.5 rev.15
+program that calles a function finddigits
+and stripes a three digit number 
+Adam Holt*/
+
+#include "stdafx.h"
+#include <iostream.h>
+
+void finddigits(int d,int &da,int &db,int &dc)
+{
+	dc=d%10;
+	db=d%100/10;
+	da=d/100;
+}
+
+int main(int argc, char* argv[])
+{
+	int digit,digita,digitb,digitc;
+	cout<<"Enter a three digit number ==> ";
+	cin>> digit;
+	finddigits(digit,digita,digitb,digitc);
+	cout<<digita<<endl<<digitb<<endl<<digitc<<endl;
+	return 0;
+}

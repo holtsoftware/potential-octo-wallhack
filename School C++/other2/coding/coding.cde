@@ -1,0 +1,33 @@
+// coding.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <fstream.h>
+#include <iostream.h>
+#include <ap/apstring.h>
+#include <stdlib.h>
+
+
+int main(int argc, char* argv[])
+{
+	apstring filename,temp,temp1;
+	cout<<"Enter the file to be coded ==> ";
+	getline(cin,filename);
+	ifstream input(filename.c_str());
+	int r=filename.find(".");
+	temp1=filename.substr(r+1,filename.length()-1);
+	filename=filename.substr(0,r);
+	filename+=".cde";
+	ofstream output(filename.c_str());
+	output<<temp1<<endl;
+	char c;
+	while(input.get(c))
+	{
+		c+=10;
+		output<<c;
+	}
+	cout<<"Compleat"<<endl;
+
+
+	return 0;
+}

@@ -1,0 +1,205 @@
+/*chaper6 revew 6-9a
+Program That simulates The Towers of Hanoi
+Adam Holt*/
+
+#include "stdafx.h"
+#include <iostream.h>
+#include <lvp/pegclass.h>
+#include <conio.h>
+#include <ctype.h>
+
+
+void movering(PegClass &frompeg,PegClass &topeg)
+/*Function takes two PegClass objects frompeg and topeg and moves the top ring from 
+frompeg and puts it on topeg*/
+{
+	int size=frompeg.RemoveRing();
+	topeg.AddRing(size);
+}
+//--------------------------------------------------------------------
+void fillpeg(PegClass &p,int n)
+/*Function takes one PegClass objects p and puts n number of rings
+the bottom ring is n and the top ring is 1*/
+{
+	for(int ring=n;ring>=1;ring--)
+		p.AddRing(ring);
+}
+//--------------------------------------------------------------------
+void getusermove(char &sp,char &fr)
+/*Function takes two char type variables "sp" and "fr" and gets the
+charicter enterd by the user and puts it in "sp" and the seconte entered
+charicter and puts it in "fr"*/
+{
+	cout<<"Enter sorce peg(l,m, or r) ==> "<<endl;
+	sp=tolower(getch());
+	cout<<"Enter destination peg(l,m, or r) ==> "<<endl;
+	fr=tolower(getch());
+}
+//--------------------------------------------------------------------
+void makeusermove(PegClass &l,PegClass &m,PegClass &r)
+/*Function takes three PegClass objects "l", "m", and "r"
+and calls getusermove and movering(passing the apropreat objects
+and checks to make sure that what the user wants to do complyes with
+Towers of Hanoi rulls*/
+{
+	char stp=9,ep=89;
+	int numrings=l.RingsOnPeg();
+	while((m.RingsOnPeg()!=numrings)&&(r.RingsOnPeg()!=numrings)&&((stp!='q')&&(ep!='q')))
+	{
+		l.ShowAll();
+		getusermove(stp,ep);
+		switch(stp){
+		case 'l':
+			if(l.RingsOnPeg()>0)
+			{
+				switch(ep){
+				case 'r':
+					if(r.RingsOnPeg()==0)
+					{
+						movering(l,r);
+					}
+					else if(l.TopRing()<r.TopRing())
+					{
+						movering(l,r);
+					}
+					else
+					{
+						cout<<"Can't move on to a smaller ring!!!"<<endl;
+					}
+					break;
+				case 'm':
+					if(m.RingsOnPeg()==0)
+					{
+						movering(l,m);
+						break;
+					}
+					else if(l.TopRing()<m.TopRing())
+					{
+						movering(l,m);
+						break;
+					}
+					else
+					{
+						cout<<"Can't move on to a smaller ring!!!"<<endl;
+						break;
+					}
+				}
+					break;
+			}
+			else
+			{
+				cout<<"No rings on peg!!!"<<endl;
+				break;
+			}
+		case 'm':
+			if(m.RingsOnPeg()>0)
+			{
+				switch(ep){
+				case 'l':
+					if(l.RingsOnPeg()==0)
+					{
+						movering(m,l);
+						break;
+					}
+					else if(m.TopRing()<l.TopRing())
+					{
+						movering(m,l);
+						break;
+					}
+					else
+					{
+						cout<<"Can't move on to a smaller ring!!!"<<endl;
+						break;
+					}
+				case 'r':
+					if(r.RingsOnPeg()==0)
+					{
+						movering(m,r);
+						break;
+					}
+					else if(m.TopRing()<r.TopRing())
+					{
+						movering(m,r);
+						break;
+					}
+					else
+					{
+						cout<<"Can't move on to a smaller ring!!!"<<endl;
+						break;
+					}
+				}
+				break;
+			}
+			else
+			{
+				cout<<"No rings on peg!!!"<<endl;
+				break;
+			}
+		case 'r':
+			if(r.RingsOnPeg()>0)
+			{
+				switch(ep){
+				case'l':
+					if(l.RingsOnPeg()==0)
+					{
+						movering(r,l);
+						break;
+					}
+					else if(r.TopRing()<l.TopRing())
+					{
+						movering(r,l);
+						break;
+					}
+					else
+					{
+						cout<<"Can't move on to a smaller ring!!!"<<endl;
+						break;
+					}
+				case 'm':
+					if(m.RingsOnPeg()==0)
+					{
+						movering(r,m);
+						break;
+					}
+					else if(r.TopRing()<m.TopRing())
+					{
+						movering(r,m);
+						break;
+					}
+					else
+					{
+						cout<<"Can't move on to a smaller ring!!!"<<endl;
+						break;
+					}
+				}
+				break;
+			}
+			else
+				{
+				cout<<"No rings on peg!!!"<<endl;
+				break;
+			}
+		
+		default:
+			cout<<"Invalid charicter"<<endl;
+			break;
+			}
+	}
+	if(stp!='q'&&ep!='q')
+	{
+		l.ShowAll();
+		cout<<"You Win!!!"<<endl;
+	}
+	else
+		cout<<"You quit!!!"<<endl;
+}
+//--------------------------------------------------------------------
+int main()
+{
+	PegClass left(7),middle(7),right(7);
+
+	const int rings=7;
+	fillpeg(left,rings);
+	makeusermove(left,middle,right);
+	return 0;
+}

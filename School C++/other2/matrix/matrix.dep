@@ -1,0 +1,17 @@
+# Microsoft Developer Studio Generated Dependency File, included by matrix.mak
+
+.\matrix.cpp : \
+	"..\..\vc98\include\ap\apintmatrix.cpp"\
+	"..\..\vc98\include\ap\aplongmatrix.cpp"\
+	"..\..\vc98\include\ap\apmatrix.cpp"\
+	"..\..\vc98\include\ap\apmatrix.h"\
+	"..\..\vc98\include\ap\apstring.cpp"\
+	"..\..\vc98\include\ap\apstring.h"\
+	"..\..\vc98\include\ap\apvector.cpp"\
+	"..\..\vc98\include\ap\apvector.h"\
+	"..\..\vc98\include\ap\extapmatrix.h"\
+	
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	

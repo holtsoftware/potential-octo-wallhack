@@ -1,0 +1,43 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: news - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/news.res" /d "_DEBUG" /d "_AFXDLL" "C:\Program Files\Microsoft Visual Studio\MyProjects\news\news.rc"" 
+Creating temporary file "c:\windows\TEMP\RSPA2B0.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/news.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"C:\Program Files\Microsoft Visual Studio\MyProjects\news\news.cpp"
+"C:\Program Files\Microsoft Visual Studio\MyProjects\news\newsDlg.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSPA2B0.TMP" 
+Creating temporary file "c:\windows\TEMP\RSPA2B1.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/news.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"C:\Program Files\Microsoft Visual Studio\MyProjects\news\StdAfx.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSPA2B1.TMP" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/news.pdb" /debug /machine:I386 /out:"Debug/news.exe" /pdbtype:sept  ".\Debug\news.obj" ".\Debug\newsDlg.obj" ".\Debug\StdAfx.obj" ".\Debug\news.res" "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+news.cpp
+newsDlg.cpp
+Generating Code...
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/news.bsc"  ".\Debug\StdAfx.sbr" ".\Debug\news.sbr" ".\Debug\newsDlg.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+news.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

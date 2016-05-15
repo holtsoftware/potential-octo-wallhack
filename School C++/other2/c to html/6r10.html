@@ -1,0 +1,688 @@
+// c to html.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream.h>
+#include <fstream.h>
+#include <ap/apvector.h>
+#include <ap/apstring.h>
+
+
+int main(int argc, char* argv[])
+{
+	apvector<apstring> file(0);
+	apstring filename,temp1="";
+	char word,ind; 
+	int size=0;
+	cout<<"Enter the file to be converted html ==>";
+	getline(cin,filename);
+	char temp;
+	ifstream ifile(filename.c_str()),index1("index.htm");	
+	int per=filename.find(".");
+	filename=filename.substr(0,per)+".html";		
+	while(index1.get(ind))
+	{
+		temp1+=ind;
+	}
+	ofstream ohtml(filename.c_str()),index("index.htm");
+	index<<temp1;
+	ohtml<<"<html>\n<title>"<<filename.substr(0,per)<<"</title>\n";
+	index<<"<a href=\""<<filename<<"\">"<<filename.substr(0,per)<<"</a><br>\n";
+	ohtml<<"<body bgcolor=\"orange\">"<<endl;
+	while(ifile.get(word))
+	{
+		if(word=='/')
+		{
+			ifile.get(word);
+			if(word=='/')
+			{
+				ohtml<<"<font color=\"green\">"<<word<<word;
+				while(ifile.get(temp))
+				{
+					if(temp=='\n')
+					{
+						ohtml<<"</font><br>";
+						break;
+					}
+					ohtml<<temp;
+				}
+			}
+			else if(word=='*')
+			{
+				ohtml<<"<font color=\"green\">/*";
+				while(ifile.get(temp))
+				{
+					if(temp=='*')
+					{
+						ifile.get(temp);
+						if(temp=='/')
+						{
+							ohtml<<"*/</font>";
+							break;
+						}
+						ohtml<<"*"<<temp;
+					}
+					else if(temp=='\n')
+					{
+						ohtml<<"<br>\n";
+					}
+					else
+						ohtml<<temp;
+				}
+			}
+			else
+				ohtml<<'/'<<word;
+		}
+		else if(word=='w')
+		{
+			ifile.get(word);
+			if(word=='h')
+			{
+				ifile.get(word);
+				if(word=='i')
+				{
+					ifile.get(word);
+					if(word=='l')
+					{
+						ifile.get(word);
+						if(word=='e')
+						{
+							ifile.get(word);
+							if(word==' '||word=='('||word==';')
+							{
+								ohtml<<"<font color=\"blue\">while</font>"<<word;
+							}
+							else
+							{
+								ohtml<<"while"<<word;
+							}
+						}
+						else
+						{
+							ohtml<<"whil"<<word;
+						}
+					}
+					else
+					{
+						ohtml<<"whi"<<word;
+					}
+				}
+				else
+				{
+					ohtml<<"wh"<<word;
+				}
+			}
+			else
+			{
+				ohtml<<"w"<<word;
+			}
+		}
+		else if(word=='\n')
+		{
+			ohtml<<"<br>\n";
+		}
+		else if(word=='<')
+		{
+			ohtml<<"&lt;";
+		}
+		else if(word=='>')
+		{
+			ohtml<<"&gt;";
+		}
+		else if(word=='\t')
+		{
+			ohtml<<"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+		}
+		else if(word=='i')
+		{
+			ifile.get(word);
+			if(word=='f')
+			{
+				ifile.get(word);
+				if(word==' '||word=='(')
+				{
+					ohtml<<"<font color=\"blue\">if</font>"<<word;
+				}
+				else
+				{
+					ohtml<<"if"<<word;
+				}
+			}
+			else if(word=='n')
+			{
+				ifile.get(word);
+				if(word=='t')
+				{
+					ifile.get(word);
+					if(word==' '||word=='(')
+					{
+						ohtml<<"<font color=\"blue\">int</font>"<<word;
+					}
+					else
+						ohtml<<"int"<<word;
+				}
+				else 
+				{
+					ohtml<<"in"<<word;
+				}
+			}
+			else
+			{
+				ohtml<<"i"<<word;
+			}
+		}
+		else if(word=='#')
+		{
+			ifile.get(word);
+			if(word=='i')
+			{
+				ifile.get(word);
+				if(word=='n')
+				{
+					ifile.get(word);
+					if(word=='c')
+					{//#include
+						ifile.get(word);
+						if(word=='l')
+						{
+							ifile.get(word);
+							if(word=='u')
+							{
+								ifile.get(word);
+								if(word=='d')
+								{
+									ifile.get(word);
+									if(word=='e')
+									{
+										ifile.get(word);
+										if(word==' ')
+										{
+											ohtml<<"<font color=\"blue\">#include</font>"<<word;
+										}
+										else
+										{
+											ohtml<<"#include"<<word;
+										}
+									}
+									else
+									{
+										ohtml<<"#includ"<<word;
+									}
+								}
+								else
+								{
+									ohtml<<"#inclu"<<word;
+								}
+							}
+							else
+							{
+								ohtml<<"#incl"<<word;
+							}
+						}
+						else
+						{
+							ohtml<<"#inc"<<word;
+						}
+					}
+					else
+					{
+						ohtml<<"#in"<<word;
+					}
+				}
+				else
+				{
+					ohtml<<"#i"<<word;
+				}
+			}
+			else
+			{
+				ohtml<<"#"<<word;
+			}
+		}
+		else if(word=='\"')
+		{
+			ohtml<<"<font color=\"white\">\"";
+			ifile.get(word);
+			while(word!='\"')
+			{
+				if(word=='<')
+				{
+					ohtml<<"&lt;";
+				}
+				else if(word=='>')
+					ohtml<<"&gt;";
+				else if(word=='\\')
+				{
+					ifile.get(word);
+					ohtml<<"\\"<<word;
+				}
+				else
+					ohtml<<word;
+				ifile.get(word);
+			}
+			ohtml<<"\"</font>";
+		}
+		else if(word=='\'')
+		{
+			ohtml<<"<font color=\"white\">\'";
+			ifile.get(word);
+			if(word=='\\')
+			{
+				ifile.get(word);
+				ohtml<<"\\"<<word;
+				ifile.get(word);
+			}
+			
+			while(word!='\'')
+			{
+				ohtml<<word;
+				ifile.get(word);
+			}
+			ohtml<<"\'</font>";
+		}
+		else if(word=='c')
+		{
+			ifile.get(word);
+			if(word=='o')
+			{
+				ifile.get(word);
+				if(word=='n')
+				{
+					ifile.get(word);
+					if(word=='s')
+					{
+						ifile.get(word);
+						if(word=='t')
+						{
+							ifile.get(word);
+							if(word==' ')
+							{
+								ohtml<<"<font color=\"blue\">const</font>"<<word;
+							}
+							else
+							{
+								ohtml<<"const"<<word;
+							}
+						}
+						else
+						{
+							ohtml<<"cons"<<word;
+						}
+					}
+					else
+					{
+						ohtml<<"con"<<word;
+					}
+				}
+				else
+				{
+					ohtml<<"co"<<word;
+				}
+			}
+			else if(word=='h')
+			{
+				ifile.get(word);
+				if(word=='a')
+				{
+					ifile.get(word);
+					if(word=='r')
+					{
+						ifile.get(word);
+						if(word==' '||word=='*')
+						{
+							ohtml<<"<font color=\"blue\">char</font>"<<word;
+						}
+						else
+						{
+							ohtml<<"char"<<word;
+						}
+					}
+					else
+					{
+						ohtml<<"cha"<<word;
+					}
+				}
+				else
+				{
+					ohtml<<"ch"<<word;
+				}
+			}
+			else
+			{
+				ohtml<<"c"<<word;
+			}
+		}
+		else if(word=='l')
+		{
+			ifile.get(word);
+			if(word=='o')
+			{
+				ifile.get(word);
+				if(word=='n')
+				{
+					ifile.get(word);
+					if(word=='g')
+					{
+						ifile.get(word);
+						if(word==' ')
+						{
+							ohtml<<"<font color=\"blue\">long</font>"<<word;
+						}
+						else
+						{
+							ohtml<<"long"<<word;
+						}
+					}
+					else
+					{
+						ohtml<<"lon"<<word;
+					}
+				}
+				else
+				{
+					ohtml<<"lo"<<word;
+				}
+			}
+			else
+			{
+				ohtml<<"l"<<word;
+			}
+		}
+		else if(word=='v')
+		{
+			ifile.get(word);
+			if(word=='o')
+			{
+				ifile.get(word);
+				if(word=='i')
+				{
+					ifile.get(word);
+					if(word=='d')
+					{
+						ifile.get(word);
+						if(word==' ')
+						{
+							ohtml<<"<font color=\"blue\">void</font>"<<word;
+						}
+						else
+						{
+							ohtml<<"void"<<word;
+						}
+					}
+					else
+					{
+						ohtml<<"voi"<<word;
+					}
+				}
+				else
+				{
+					ohtml<<"vo"<<word;
+				}
+			}
+			else
+			{
+				ohtml<<"v"<<word;
+			}
+		}
+		else if(word=='r')
+		{
+			//return
+			ifile.get(word);
+			if(word=='e')
+			{
+				ifile.get(word);
+				if(word=='t')
+				{
+					ifile.get(word);
+					if(word=='u')
+					{
+						ifile.get(word);
+						if(word=='r')
+						{
+							ifile.get(word);
+							if(word=='n')
+							{
+								ifile.get(word);
+								if(word==' '||word=='(')
+								{
+									ohtml<<"<font color=\"blue\">return</font>"<<word;
+								}
+								else
+								{
+									ohtml<<"return"<<word;
+								}
+							}
+							else
+							{
+								ohtml<<"retur"<<word;
+							}
+						}
+						else
+						{
+							ohtml<<"retu"<<word;
+						}
+					}
+					else
+					{
+						ohtml<<"ret"<<word;
+					}
+				}
+				else
+				{
+					ohtml<<"re"<<word;
+				}
+			}
+			else
+			{
+				ohtml<<"r"<<word;
+			}
+		}
+		else if(word=='t')
+		{
+			ifile.get(word);
+			if(word=='r')
+			{
+				ifile.get(word);
+				if(word=='u')
+				{
+					ifile.get(word);
+					if(word=='e')
+					{
+						ifile.get(word);
+						if(word==' '||word=='<'||word=='>'||word=='('||word==')'||word=='='||word=='!')
+						{
+							ohtml<<"<font color=\"blue\">true</font>"<<word;
+						}
+						else
+							ohtml<<"true"<<word;
+					}
+					else
+						ohtml<<"tru"<<word;
+				}
+				else
+					ohtml<<"tr"<<word;
+			}
+			else
+				ohtml<<"t"<<word;
+		}
+		else if(word=='f')
+		{
+			ifile.get(word);
+			if(word=='a')
+			{
+				ifile.get(word);
+				if(word=='l')
+				{
+					ifile.get(word);
+					if(word=='s')
+					{
+						ifile.get(word);
+						if(word=='e')
+						{
+							ifile.get(word);
+							if(word==' '||word=='<'||word=='>'||word=='('||word==')'||word=='='||word=='!'||word==';')
+							{
+								ohtml<<"<font color=\"\ablue\">false</font>"<<word;
+							}
+							else
+								ohtml<<"false"<<word;
+						}
+						else
+							ohtml<<"fals"<<word;
+					}
+					else
+						ohtml<<"fal"<<word;
+				}
+				else
+					ohtml<<"fa"<<word;
+			}
+			else if(word=='l')
+			{
+				ifile.get(word);
+				if(word=='o')
+				{
+					ifile.get(word);
+					if(word=='a')
+					{
+						ifile.get(word);
+						if(word=='t')
+						{
+							ifile.get(word);
+							if(word==' '||word==')')
+							{
+								ohtml<<"<font color=\"white\">float</float>"<<word;
+							}
+							else
+								ohtml<<"float"<<word;
+						}
+						else
+							ohtml<<"floa"<<word;
+					}
+					else
+						ohtml<<"flo"<<word;
+				}
+				else
+					ohtml<<"fl"<<word;
+			}
+			else if(word=='o')
+			{
+				ifile.get(word);
+				if(word=='r')
+				{
+					ifile.get(word);
+					if(word==' '||word=='(')
+					{
+						ohtml<<"<font color=\"blue\">for</font>"<<word;
+					}
+					else
+						ohtml<<"for"<<word;
+				}
+				else
+					ohtml<<"fo"<<word;
+			}
+			else
+				ohtml<<"f"<<word;
+		}
+		else if(word=='d')
+		{
+			ifile.get(word);
+			if(word=='o')
+			{
+				ifile.get(word);
+				if(word='u')
+				{
+					ifile.get(word);
+					if(word=='b')
+					{
+						ifile.get(word);
+						if(word=='l')
+						{
+							ifile.get(word);
+							if(word=='e')
+							{
+								ifile.get(word);
+								if(word==' ')
+								{
+									ohtml<<"<font color=\"blue\">double</font>"<<word;
+								}
+								else
+									ohtml<<"double"<<word;
+							}
+							else
+								ohtml<<"doubl"<<word;
+						}
+						else
+							ohtml<<"doub"<<word;
+					}
+					else
+						ohtml<<"dou"<<word;
+				}
+				else if(word==' '||word=='{')
+				{
+					ohtml<<"<font color=\"blue\">do</font>"<<word;
+				}
+				else
+					ohtml<<"do"<<word;
+			}
+			else
+				ohtml<<"d"<<word;
+		}
+		else if(word=='f')
+		{
+			ifile.get(word);
+			if(word=='o')
+			{
+				ifile.get(word);
+				if(word=='r')
+				{
+					ifile.get(word);
+					if(word==' '||word=='(')
+					{
+						ohtml<<"<font color=\"blue\">for</font>"<<word;
+					}
+					else
+						ohtml<<"for"<<word;
+				}
+				else
+					ohtml<<"fo"<<word;
+			}
+			else if(word=='l')
+			{
+				ifile.get(word);
+				if(word=='o')
+				{
+					ifile.get(word);
+					if(word=='a')
+					{
+						ifile.get(word);
+						if(word=='t')
+						{
+							ifile.get(word);
+							if(word==' ')
+							{
+								ohtml<<"<font color=\"blue\">float</font>"<<word;
+							}
+							else
+								ohtml<<"float"<<word;
+						}
+						else
+							ohtml<<"floa"<<word;
+					}
+					else
+						ohtml<<"flo"<<word;
+				}
+				else
+					ohtml<<"fl"<<word;
+			}
+			else
+				ohtml<<"f"<<word;
+		}
+		
+		else
+		{
+			ohtml<<word;
+		}
+	}
+	ohtml<<"<p align=\"center\"><a href=\"index.htm\">back</a><br></p></body>";
+	return 0;
+}

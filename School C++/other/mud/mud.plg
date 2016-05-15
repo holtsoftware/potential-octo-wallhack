@@ -1,0 +1,141 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: mud - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "E:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5ADF.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/mud.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\MyProjects\mud\driver.cpp"
+"D:\MyProjects\mud\MFileCommand.cpp"
+"D:\MyProjects\mud\object.cpp"
+"D:\MyProjects\mud\readfile.cpp"
+]
+Creating command line "cl.exe @E:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5ADF.tmp" 
+Creating temporary file "E:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5AE0.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/mud.pdb" /machine:I386 /out:"Release/mud.exe" 
+.\Release\driver.obj
+.\Release\MFileCommand.obj
+.\Release\object.obj
+.\Release\readfile.obj
+]
+Creating command line "link.exe @E:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5AE0.tmp"
+<h3>Output Window</h3>
+Compiling...
+driver.cpp
+MFileCommand.cpp
+D:\MyProjects\mud\MFileCommand.cpp(24) : warning C4101: 'c_file' : unreferenced local variable
+D:\MyProjects\mud\MFileCommand.cpp(25) : warning C4101: 'hFile' : unreferenced local variable
+object.cpp
+readfile.cpp
+Linking...
+MFileCommand.obj : error LNK2005: "public: __thiscall apstring::apstring(void)" (??0apstring@@QAE@XZ) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: __thiscall apstring::apstring(char const *)" (??0apstring@@QAE@PBD@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: __thiscall apstring::apstring(class apstring const &)" (??0apstring@@QAE@ABV0@@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: __thiscall apstring::~apstring(void)" (??1apstring@@QAE@XZ) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: class apstring const & __thiscall apstring::operator=(class apstring const &)" (??4apstring@@QAEABV0@ABV0@@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: class apstring const & __thiscall apstring::operator=(char const *)" (??4apstring@@QAEABV0@PBD@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: class apstring const & __thiscall apstring::operator=(char)" (??4apstring@@QAEABV0@D@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: int __thiscall apstring::length(void)const " (?length@apstring@@QBEHXZ) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: char const * __thiscall apstring::c_str(void)const " (?c_str@apstring@@QBEPBDXZ) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: char & __thiscall apstring::operator[](int)" (??Aapstring@@QAEAADH@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: char __thiscall apstring::operator[](int)const " (??Aapstring@@QBEDH@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "class ostream & __cdecl operator<<(class ostream &,class apstring const &)" (??6@YAAAVostream@@AAV0@ABVapstring@@@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "class istream & __cdecl operator>>(class istream &,class apstring &)" (??5@YAAAVistream@@AAV0@AAVapstring@@@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "class istream & __cdecl getline(class istream &,class apstring &)" (?getline@@YAAAVistream@@AAV1@AAVapstring@@@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: class apstring const & __thiscall apstring::operator+=(class apstring const &)" (??Yapstring@@QAEABV0@ABV0@@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: class apstring const & __thiscall apstring::operator+=(char)" (??Yapstring@@QAEABV0@D@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "class apstring  __cdecl operator+(class apstring const &,class apstring const &)" (??H@YA?AVapstring@@ABV0@0@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "class apstring  __cdecl operator+(char,class apstring const &)" (??H@YA?AVapstring@@DABV0@@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "class apstring  __cdecl operator+(class apstring const &,char)" (??H@YA?AVapstring@@ABV0@D@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: class apstring  __thiscall apstring::substr(int,int)const " (?substr@apstring@@QBE?AV1@HH@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: int __thiscall apstring::find(class apstring const &)const " (?find@apstring@@QBEHABV1@@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: int __thiscall apstring::find(char)const " (?find@apstring@@QBEHD@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "bool __cdecl operator==(class apstring const &,class apstring const &)" (??8@YA_NABVapstring@@0@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "bool __cdecl operator!=(class apstring const &,class apstring const &)" (??9@YA_NABVapstring@@0@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "bool __cdecl operator<(class apstring const &,class apstring const &)" (??M@YA_NABVapstring@@0@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "bool __cdecl operator<=(class apstring const &,class apstring const &)" (??N@YA_NABVapstring@@0@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "bool __cdecl operator>(class apstring const &,class apstring const &)" (??O@YA_NABVapstring@@0@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "bool __cdecl operator>=(class apstring const &,class apstring const &)" (??P@YA_NABVapstring@@0@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "int const  npos" (?npos@@3HB) already defined in driver.obj
+Release/mud.exe : fatal error LNK1169: one or more multiply defined symbols found
+Error executing link.exe.
+
+
+
+<h3>Results</h3>
+mud.exe - 30 error(s), 2 warning(s)
+<h3>
+--------------------Configuration: mud - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "E:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5AE2.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/mud.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\MyProjects\mud\driver.cpp"
+"D:\MyProjects\mud\MFileCommand.cpp"
+"D:\MyProjects\mud\object.cpp"
+"D:\MyProjects\mud\readfile.cpp"
+]
+Creating command line "cl.exe @E:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5AE2.tmp" 
+Creating temporary file "E:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5AE3.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/mud.pdb" /debug /machine:I386 /out:"Debug/mud.exe" /pdbtype:sept 
+.\Debug\driver.obj
+.\Debug\MFileCommand.obj
+.\Debug\object.obj
+.\Debug\readfile.obj
+]
+Creating command line "link.exe @E:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5AE3.tmp"
+<h3>Output Window</h3>
+Compiling...
+driver.cpp
+MFileCommand.cpp
+D:\MyProjects\mud\MFileCommand.cpp(24) : warning C4101: 'c_file' : unreferenced local variable
+D:\MyProjects\mud\MFileCommand.cpp(25) : warning C4101: 'hFile' : unreferenced local variable
+object.cpp
+readfile.cpp
+Linking...
+MFileCommand.obj : error LNK2005: "public: __thiscall apstring::apstring(void)" (??0apstring@@QAE@XZ) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: __thiscall apstring::apstring(char const *)" (??0apstring@@QAE@PBD@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: __thiscall apstring::apstring(class apstring const &)" (??0apstring@@QAE@ABV0@@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: __thiscall apstring::~apstring(void)" (??1apstring@@QAE@XZ) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: class apstring const & __thiscall apstring::operator=(class apstring const &)" (??4apstring@@QAEABV0@ABV0@@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: class apstring const & __thiscall apstring::operator=(char const *)" (??4apstring@@QAEABV0@PBD@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: class apstring const & __thiscall apstring::operator=(char)" (??4apstring@@QAEABV0@D@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: int __thiscall apstring::length(void)const " (?length@apstring@@QBEHXZ) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: char const * __thiscall apstring::c_str(void)const " (?c_str@apstring@@QBEPBDXZ) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: char & __thiscall apstring::operator[](int)" (??Aapstring@@QAEAADH@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: char __thiscall apstring::operator[](int)const " (??Aapstring@@QBEDH@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "class ostream & __cdecl operator<<(class ostream &,class apstring const &)" (??6@YAAAVostream@@AAV0@ABVapstring@@@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "class istream & __cdecl operator>>(class istream &,class apstring &)" (??5@YAAAVistream@@AAV0@AAVapstring@@@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "class istream & __cdecl getline(class istream &,class apstring &)" (?getline@@YAAAVistream@@AAV1@AAVapstring@@@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: class apstring const & __thiscall apstring::operator+=(class apstring const &)" (??Yapstring@@QAEABV0@ABV0@@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: class apstring const & __thiscall apstring::operator+=(char)" (??Yapstring@@QAEABV0@D@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "class apstring  __cdecl operator+(class apstring const &,class apstring const &)" (??H@YA?AVapstring@@ABV0@0@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "class apstring  __cdecl operator+(char,class apstring const &)" (??H@YA?AVapstring@@DABV0@@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "class apstring  __cdecl operator+(class apstring const &,char)" (??H@YA?AVapstring@@ABV0@D@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: class apstring  __thiscall apstring::substr(int,int)const " (?substr@apstring@@QBE?AV1@HH@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: int __thiscall apstring::find(class apstring const &)const " (?find@apstring@@QBEHABV1@@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "public: int __thiscall apstring::find(char)const " (?find@apstring@@QBEHD@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "bool __cdecl operator==(class apstring const &,class apstring const &)" (??8@YA_NABVapstring@@0@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "bool __cdecl operator!=(class apstring const &,class apstring const &)" (??9@YA_NABVapstring@@0@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "bool __cdecl operator<(class apstring const &,class apstring const &)" (??M@YA_NABVapstring@@0@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "bool __cdecl operator<=(class apstring const &,class apstring const &)" (??N@YA_NABVapstring@@0@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "bool __cdecl operator>(class apstring const &,class apstring const &)" (??O@YA_NABVapstring@@0@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "bool __cdecl operator>=(class apstring const &,class apstring const &)" (??P@YA_NABVapstring@@0@Z) already defined in driver.obj
+MFileCommand.obj : error LNK2005: "int const  npos" (?npos@@3HB) already defined in driver.obj
+Debug/mud.exe : fatal error LNK1169: one or more multiply defined symbols found
+Error executing link.exe.
+
+
+
+<h3>Results</h3>
+mud.exe - 30 error(s), 2 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,53 @@
+    *********************************
+    * c   c   c   B   c   c   c   A *
+***** |   |   |   |   |   |   | /   *
+* c - p - p - p - p - p - p - p - c *
+***************** |           |     *    key
+                * p - c   c - p - c *    -------
+  weal map will * |           |     *    (c) cage
+  added later   * p - c   c - p - c *    (p) path
+                * |           |     *    (B) to back offices
+                * p - c   c - p - c *    (A) to black alie
+                * |           |     *    (d) dalfen pond
+                * p - p - p - p - c *    (s) to shark tank
+                * | *****************    (N) safarie zone(read safari)
+                * p * Main office        (g) main gate
+***************** | * added later
+* c - p - p - p - p *
+*     |           | *
+* c - p   o   q   p *
+*     |   |   |   | *****************
+* c - p - p - p - p - p - p - p - c *
+*     |   |   |   |           |     *
+* c - p - d - d - p - S       p - c *
+*     |   |   |   |           |     *
+* c - p - d - d - p - s       p - c *
+*     |   |   |   |           |     *
+N p - p - p - p - p - p - p - p - c *
+*     |           |           |     *
+* c - p - c   c - p - c   c - p - c *
+*     |           |           |     *
+* c - p - c   c - p - c   c - p - c *
+*     |           |           |     *
+* c - p - c   c - p - c   c - p - c *
+*     |           |           |     *
+* c - p - c   c - p - c   c - p - c *
+*     |           |           |     *
+* c - p - c   c - p - c   c - p - c *
+*     |           |           |     *
+* c - p - c   c - p - c   c - p - c *
+*     |           |           |     *
+* c - p - p - p - p - p - p - p - p *
+*     |           |           |     *
+* c - p - c   c - p - c   c - p - c *
+*     |           |           |     *
+* c - p - c   c - p - c   c - p - c *
+*     |           |           |     *
+* c - p - c   c - p - c   c - p - c *
+*     |           |           |     *
+* c - p - c   c - p - c   c - p - c *
+***** | *****     |     ***** | *****
+    * c *   * c - p - c *   * c *
+    *****   ***** | *****   *****
+                * g *
+

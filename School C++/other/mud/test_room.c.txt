@@ -1,0 +1,39 @@
+// Waiting room
+// Grinder@earthmud
+// Last Changed: 10-11-01
+
+#include <mudlib.h>
+
+inherit ROOM;
+
+void create()
+{
+    ::create();
+    set("short","A waiting room");
+    set("long",@EndLong
+    This room looks like a waiting room.  Chairs line the 
+outer wall.  A secretary is sitting behind a desk.  A sign
+on the only door in the room says, "Grinders Office."  To 
+the east you see a dark room that seems to have a statue in
+it.
+EndLong
+    );
+    set("exits",(["south":"/u/g/grinder/rooms/test_room.c",
+                  "east":"/u/g/grinder/rooms/closet.c"]));
+    set("roomtype","inside");
+    set_terrain((["wildlife":1,
+                  "population":1,
+                  "surface":3,
+                  "temperature":4,
+                  "texture":5,
+                  "moisture":3,
+                  "vegetation":1,
+                  "elevation":4,
+                  "air":3,
+                  "water":0,
+                  "fire":0,
+                  "earth":0]));
+    set("light",275);
+    set("power",1);
+}
+

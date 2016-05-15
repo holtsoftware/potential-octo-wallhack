@@ -1,0 +1,42 @@
+// elev.odl : type library source for elev.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (elev.tlb).
+
+[ uuid(7A97252C-E570-11D3-928D-DCB583C21533), version(1.0) ]
+library Elev
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+
+	//  Primary dispatch interface for CElevDoc
+	
+	[ uuid(7A97252D-E570-11D3-928D-DCB583C21533) ]
+	dispinterface IElev
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CElevDlgAutoProxy)
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CElevDlgAutoProxy)
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CElevDoc
+	
+	[ uuid(7A97252B-E570-11D3-928D-DCB583C21533) ]
+	coclass Elev
+	{
+		[default] dispinterface IElev;
+	};
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

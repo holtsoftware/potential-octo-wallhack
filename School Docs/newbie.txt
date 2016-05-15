@@ -1,0 +1,20 @@
+ Safari Zone
+ -----------
+**************
+*s - s - s - s*
+*|   |   |   |*
+*s - s - s - s*
+*|   |   |   |******
+*g - g - g - g - g - p
+*|   |   |   |******
+*d - d - d - d*
+*|   |   |   |*
+*d - d - d - d*
+***************
+
+Key -
+-------------
+(s) Swamp
+(g) Grass
+(d) dessert
+(p) main part of zoo (read main)

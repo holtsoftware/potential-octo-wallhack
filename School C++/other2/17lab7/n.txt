@@ -1,0 +1,131 @@
+// names.cpp: implementation of the names class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include <fstream.h>
+#include "names.h"
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+names::~names()
+{
+	NODE *todel;
+	while(head)
+	{
+		todel=head;
+		head=head->next;
+		delete todel;
+	}
+}
+names::names(const char *file)
+:filename(file)
+{
+	head=0;
+	ifstream input(filename,ios::nocreate);
+	if(input.fail())
+		return;
+	NODE *newnode,*previous=0;
+	apstring tempn;
+	while(getline(input,tempn))
+	{
+		newnode=new NODE;
+		if(head==0)
+		{
+			head=newnode;
+		}
+		else
+		{
+			previous->next=newnode;
+		}
+		newnode->next=0;
+		previous=newnode;
+		newnode->name=tempn;
+	}
+}
+
+/////////////////////////////////////////////////////////////////////////
+//member functions
+/////////////////////////////////////////////////////////////////////////
+
+//
+void names::display(ostream &output) const
+{
+	NODE *temp=head;
+	while(temp)
+	{
+		output<<temp->name<<endl;
+		temp=temp->next;
+	}
+}
+
+void names::display() const
+//displayes the list stored in head
+{
+	NODE *temp=head;
+	while(temp)
+	{
+		cout<<temp->name<<endl;
+		temp=temp->next;
+	}
+}
+
+//takes apstring wich is defined in apstring.h
+bool names::insert(const apstring &toin)
+{
+	NODE *temp;//whare the new node will be temparaly stored
+	temp=new NODE;
+	if(!temp)
+		return false;
+	temp->next=head;//makes next point to the first element of head so you dont loose the list
+	temp->name=toin;
+	head=temp;
+	return true;
+}
+//
+bool names::insertinorder(const apstring &toadd)
+{
+	NODE *newnode;
+	newnode=new NODE;
+	if(!newnode)
+		return false;
+	newnode->name=toadd;
+	NODE *node=head,*prev=0;
+	while(node&&node->name<=toadd){
+		prev=node;
+		node=node->next;
+	}
+	newnode->next=node;
+	if(prev)
+		prev->next=newnode;
+	else
+		head=newnode;
+	return true;
+}
+
+bool names::remove(const apstring &tore)
+{
+	NODE *node,*prev;
+	prev=0;
+	node=head;
+	while(node&&node->name!=tore)
+	{
+		prev=node;
+		node=node->next;
+	}
+	if(!node)
+		return false;
+	if(prev)
+		prev->next=node->next;
+	else
+		head=node->next;
+	delete node;
+	return true;
+}
+
+ostream &operator<<(ostream &output,names &todis)
+{
+	todis.display(output);
+	return output;
+}

@@ -1,0 +1,293 @@
+// 8lab4.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+// MENU.CPP
+//
+// This program illustrates the use of simple one-character
+//   commands.  The program displays a menu, accepts a command
+//   and executes it.  The application is an embryonic
+//   "Inventory Control System" which, at this stage of development,
+//   only maintains a list of "inventory items" (integers).
+//   Items are stored in an integer array. The "quantity" is
+//   not supported -- it is set to 1 for all inventory items.
+//
+// Author: Bill Wares
+//
+
+#include <iostream.h>
+#include <iomanip.h>
+#include <ctype.h>                 // Declares toupper(ch)
+#include <ap/apvector.h>
+#include <fstream.h>
+#include <ap/apstring.h>
+
+const int QUANTITY = 1;        // Quantity for each item is set
+                               //   to 1 in this preliminary version.
+
+struct adam{
+	int num;
+};
+// Function prototypes:
+
+int Find (const apvector<int> &inventory, int partNum);
+void Show (const apvector<int> &inventory, int partNum);
+void Add (apvector<int> &inventory, int partNum);
+void Remove (apvector<int> &inventory, int partNum);
+void List (const apvector<int> &inventory);
+int findp(apvector<int> &inventory,int);
+bool loadf(apvector<int> &inventory);
+void savefile(apvector<int> &);
+
+//****************************************************************
+//****************             main            *******************
+//****************************************************************
+
+int main()
+
+{
+    apvector<int> inventory;   // Array of items (initially empty)
+    char cmd;
+    int partNum;
+	loadf(inventory);
+
+    cout << "\n          One Of Each, Inc.\n";
+    cout << "      Inventory Control System\n";
+
+    for(;;) {  // Repeat (until break)
+
+        // Show the menu and prompt:
+
+        cout << "\n";  // Output a blank line
+
+        cout << "\t (S)how inventory item\n";      // '\t' is tab
+        cout << "\t (A)dd item\n";
+        cout << "\t (R)emove item\n";
+        cout << "\t (L)ist inventory\n";
+		cout << "\t  Save (F)ile\n";
+        cout << "\t (Q)uit\n";
+        cout << endl;
+        cout << "Next command ==> ";
+
+        // Accept command:
+
+        cin >> cmd;             // Read one char.
+        cin.ignore(80, '\n');   // Skip remaining input (up to 80
+                                //   chars) to the end of the line.
+        cmd = toupper(cmd);     // Convert letter to upper case
+                                //   to allow lower case input
+                                //   for commands (for convenience).
+
+        // Quit if 'Q'
+
+        if (cmd == 'Q')
+		{
+			savefile(inventory);
+            break;                  // Quit processing commands
+		}
+
+        cout << "\n\n****************************************\n";
+
+        // Process command:
+
+        switch (cmd) {
+
+          case 'S':           // Show inventory item information
+
+            cout << "Part number: ";
+            cin >> partNum;
+            Show(inventory, partNum);
+            break;
+
+          case 'A':
+			cout<<"Part number: ";
+			cin>>partNum;
+			Add(inventory,partNum);
+			break;
+		case 'R':
+			cout<<"Part number: ";
+			cin>>partNum;
+			Remove(inventory,partNum);
+			break;
+		case 'L':
+			List(inventory);
+			break;
+		case 'F':
+			savefile(inventory);
+			break;
+		default :
+			cout<<"Error !\n";
+	   }
+
+        }
+
+        cout << "****************************************\n";
+    return 0;
+}
+
+//****************************************************************
+//****************          Functions          *******************
+//****************************************************************
+
+int Find (const apvector<int> &inventory, int partNum)
+
+// Finds the part number, partNum, in the inventory array.
+// Returns its index if found, -1 otherwise.
+
+{
+    int i, nItems = inventory.length();
+
+    for (i = 0;   i < nItems;   i++)
+        if (inventory[i] == partNum)
+            return i;
+    return -1;
+}
+
+//****************************************************************
+
+void Show (const apvector<int> &inventory, int partNum)
+
+// Displays inventory information for the given part number.
+
+{
+	int arraysubnumber=-1;
+	for(int t=0;t<inventory.length();t++)
+	{
+		if(inventory[t]==partNum)
+			arraysubnumber=t;
+	}
+	if(arraysubnumber>-1)
+	{
+		cout.setf(ios::left);
+		cout<<"Pantnum     quonity"<<endl;
+		cout.width(15);cout<<inventory[arraysubnumber]<<1<<endl;
+		cout.setf(ios::right);
+	}
+	else
+		cout<<"Not in inventory"<<endl;
+}
+
+//****************************************************************
+void move(apvector<int> &inventory,int pas)
+{
+	for(int y=inventory.length()-1;y>pas;y--)
+	{
+		inventory[y]=inventory[y-1];
+	}
+}
+//****************************************************************
+void Add (apvector<int> &inventory, int partNum)
+
+// Adds the new inventory item with the specified part number,
+//   partNum, to the inventory list.
+//   Checks whether partNum is already in the list.
+
+{
+    int nItems;
+
+    if (Find(inventory, partNum) >= 0)
+        cout << "already registered in the inventory list.\n";
+    else {
+        nItems = inventory.length();
+        inventory.resize(nItems+1);
+	   int pastion=findp(inventory,partNum);
+	   move(inventory,pastion);
+	   inventory[pastion] = partNum;
+        cout << "added to the inventory list.\n";
+    }
+}
+
+//****************************************************************
+
+void Remove (apvector<int> &inventory, int partNum)
+
+// Removes the item partNum from the inventory list, if it
+//   is there.  Displays an appropriate message if partNum is not
+//   in the list.
+
+{
+    int i, j, nItems;
+
+    i = Find(inventory, partNum);
+    if (i < 0)
+        cout << "not found.\n";
+    else {
+        nItems = inventory.length();
+        for (j = i+1;   j < nItems;   j++)  // Shift items
+            inventory[j-1] = inventory[j];  //  to fill the gap.
+        inventory.resize(nItems - 1);
+        cout << "removed from the inventory list.\n";
+    }
+}
+
+//****************************************************************
+
+void List (const apvector<int> &inventory)
+
+// Displays the inventory list.
+
+{
+	for(int y=0;y<inventory.length();y++)
+	{
+		cout.setf(ios::left);
+		cout<<"Part num.   quonity"<<endl;
+		cout.width(15);cout<<inventory[y]<<1<<endl;
+		for(long double u=0;u<99999999;u++);
+		cout<<"--------------------------"<<endl;
+		cout.setf(ios::right);
+	}
+}
+//*************************************************************************
+int findp(apvector<int> &inventory,int partnum)
+{
+	int pas=0;
+	for(int t=0;t<inventory.length();t++)
+	{
+		pas=t;
+		if(inventory[t]>partnum)
+			break;
+	}
+	return pas;
+}
+//*********************************************************************
+bool loadf(apvector<int> &inventory)
+{
+	int cnt=0,notu=0,numof=0;
+
+	ifstream numofen("adam.dat");
+	ifstream inpFile("adam.dat");
+	if(!inpFile)
+		return false;
+
+	while(numofen>>notu)
+	{
+		numofen.ignore(100,'\n');
+		numof++;
+	}
+	inventory.resize(numof);
+	while(cnt<numof&&inpFile>>inventory[cnt])
+	{
+		
+		inpFile.ignore(100,'\n');
+		cnt++;
+	}
+	cout<<"There is "<<cnt<<" entries"<<endl;
+	
+	return true;
+}
+
+void savefile(apvector<int> &inventory)
+{
+	int leng=inventory.length();
+	int cnt=0;
+
+	ofstream outpfile("adam.dat");
+
+	while(cnt<leng&&outpfile<<inventory[cnt]<<endl)
+	{
+		cnt++;
+	}
+	cout<<"File Saved"<<endl;
+}
+
+

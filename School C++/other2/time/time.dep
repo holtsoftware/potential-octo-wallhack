@@ -1,0 +1,9 @@
+# Microsoft Developer Studio Generated Dependency File, included by time.mak
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	
+
+.\time.cpp : \
+	".\StdAfx.h"\
+	

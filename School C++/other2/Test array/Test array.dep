@@ -1,0 +1,13 @@
+# Microsoft Developer Studio Generated Dependency File, included by Test array.mak
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	
+
+".\Test array.cpp" : \
+	"..\..\vc98\include\ap\apmatrix.cpp"\
+	"..\..\vc98\include\ap\apvector.cpp"\
+	"..\..\vc98\include\ap\apvector.h"\
+	{$(INCLUDE)}"ap\apmatrix.h"\
+	{$(INCLUDE)}"dmatrix.h"\
+	

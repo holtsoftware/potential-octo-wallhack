@@ -1,0 +1,13 @@
+# Microsoft Developer Studio Generated Dependency File, included by F.mak
+
+..\..\Vc98\Include\ap\Apstring.cpp : \
+	"..\..\Vc98\Include\ap\Apstring.h"\
+	
+
+.\F.cpp : \
+	"..\..\Vc98\Include\ap\Apstring.h"\
+	
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	

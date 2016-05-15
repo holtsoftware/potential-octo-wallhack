@@ -1,0 +1,41 @@
+/*chap.5 rev.16
+program that splites seconts into hours minutes and leftover seconts
+Adam Holt per.6*/
+
+#include "stdafx.h"
+#include <iostream.h>
+
+void breakup(int totalseconts,int &hour,int &min,int &sec);
+
+int main(int argc, char* argv[])
+{
+	int tseconts,hours=0,minutes=0,seconts=0;
+	cout<<"Enter the total seconts";
+	cin>>tseconts;
+	breakup(tseconts,hours,minutes,seconts);
+	cout<<hours<<"/"<<minutes<<"/"<<seconts<<endl;
+	return 0;
+}
+
+int hours(int hour)
+{
+	return (hour/60/60);
+}
+
+int minutes(int min)
+{
+	return((min/60)%10);
+}
+
+int seconts(int sec)
+{
+	return(sec%60);
+}
+
+void breakup(int totalseconts,int &hour,int &min,int &sec)
+{
+	
+	sec=seconts(totalseconts);
+	min=minutes(totalseconts);
+	hour=hours(totalseconts);
+}

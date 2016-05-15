@@ -1,0 +1,28 @@
+// 6e1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream.h>
+#include <ap/apstring.h>
+#include <stdlib.h>
+
+
+apstring rotateone(apstring rotate)
+{
+	return(rotate.substr(1,rotate.length()-1)+rotate.substr(0,1));
+}
+
+int main(int argc, char* argv[])
+{
+	apstring str="Vote Yes!";
+	str+=" ";
+	int leng=str.length();
+	for(int y=0;y<100;y++)
+	{
+		str=rotateone(str);
+		cout<<str<<endl;
+		for(long h=0;h<20000000;h++);
+		system("cls");
+	}
+	return 0;
+}

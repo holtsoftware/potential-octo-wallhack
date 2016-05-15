@@ -1,0 +1,34 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: binary - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "c:\windows\TEMP\RSPE2F0.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/binary.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ  /c 
+"C:\Program Files\Microsoft Visual Studio\MyProjects\binary\binary.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSPE2F0.TMP" 
+Creating temporary file "c:\windows\TEMP\RSPE2F1.TMP" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/binary.pdb" /debug /machine:I386 /out:"Debug/binary.exe" /pdbtype:sept 
+".\Debug\StdAfx.obj"
+".\Debug\binary.obj"
+]
+Creating command line "link.exe @c:\windows\TEMP\RSPE2F1.TMP"
+<h3>Output Window</h3>
+Compiling...
+binary.cpp
+c:\program files\microsoft visual studio\myprojects\binary\binary.cpp(62) : fatal error C1010: unexpected end of file while looking for precompiled header directive
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+binary.exe - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
